@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,12 @@ import io.swagger.annotations.ApiOperation;
 public class SampleController {
 	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
 	
+	@Autowired
 	private SampleService sampleService;
 	
 	@ApiOperation(value="Sample")
 	@PostMapping
-	public byte[] getSample(@RequestBody HashMap<String, Object> hash) {
+	public String getSample(@RequestBody HashMap<String, Object> hash) {
 		byte[] result = null;
 		
 		try {
@@ -31,12 +33,12 @@ public class SampleController {
 			logger.info("### Input : {} ###" , hash);
 			logger.info("########################################################");
 			result = sampleService.sampleTest(hash);
-			logger.info("### Output : {} ###" , result);
+			logger.info("### Output : {} ###" , new String(result));
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		
 		
-		return result;
+		return new String(result);
 	}
 }
