@@ -9,12 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dalpeng</groupId>
-	<artifactId>backendTest</artifactId>
+	<artifactId>backendtest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backendTest</name>
+	<name>backendtest</name>
 	<description>Demo project for Spring Boot by Dalpeng</description>
 	<properties>
 		<java.version>1.8</java.version>
+		 <tomcat.port>8443</tomcat.port>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,6 +38,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		        <dependency>
    <groupId>io.springfox</groupId>
    <artifactId>springfox-swagger2</artifactId>
